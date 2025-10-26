@@ -344,9 +344,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Sayed Zabiulla**
 
-- GitHub: [@YOUR_GITHUB_USERNAME](https://github.com/YOUR_GITHUB_USERNAME)
-- Email: your.email@example.com
-- University: YOUR_UNIVERSITY_NAME
+- GitHub: [@SayedZabiulla](https://github.com/SayedZabiulla)
+- Email: SayedZabeulla.com
+- University: Alliance University
 
 ---
 
@@ -362,8 +362,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For questions or collaboration opportunities, please reach out via:
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
+- Email: your.SayedZabeulla@gmail.com
+- LinkedIn: [SayedZabiulla](https://linkedin.com/in/SayedZabiulla)
 
 ---
 
@@ -371,7 +371,7 @@ For questions or collaboration opportunities, please reach out via:
 
 If you find this project helpful, please consider giving it a star!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=YOUR_USERNAME/HD-MRI-Diagnosis&type=Date)](https://star-history.com/#YOUR_USERNAME/HD-MRI-Diagnosis&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=SayedZabiulla/HD-MRI-Diagnosis&type=Date)](https://star-history.com/#SayedZabiulla/HD-MRI-Diagnosis&Date)
 
 ---
 
