@@ -79,6 +79,7 @@ HD_Diagnosis_Project/
 ├── requirements.txt              # Python dependencies
 ├── README.md                     # This file
 └── LICENSE                       # MIT License
+
 ---
 
 ## 🚀 Installation & Setup
