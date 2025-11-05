@@ -51,7 +51,6 @@ This capstone project implements an automated deep learning system for diagnosin
 
 ## 🗂️ Project Structure
 
-\`\`\`
 HD_Diagnosis_Project/
 ├── data/
 │   ├── raw/                      # OASIS-1 dataset (not included)
@@ -80,8 +79,6 @@ HD_Diagnosis_Project/
 ├── requirements.txt              # Python dependencies
 ├── README.md                     # This file
 └── LICENSE                       # MIT License
-\`\`\`
-
 ---
 
 ## 🚀 Installation & Setup
@@ -94,35 +91,19 @@ HD_Diagnosis_Project/
 - CUDA 12.1
 
 ### Step 1: Clone Repository
-
-\`\`\`bash
 git clone https://github.com/YOUR_USERNAME/HD-MRI-Diagnosis.git
 cd HD-MRI-Diagnosis
-\`\`\`
-
 ### Step 2: Create Virtual Environment
-
-\`\`\`bash
 python3.10 -m venv hd_env
 source hd_env/bin/activate
-\`\`\`
-
 ### Step 3: Install Dependencies
-
-\`\`\`bash
 pip install --upgrade pip
 pip install -r requirements.txt
-\`\`\`
-
 ### Step 4: Download Dataset
-
 Download the OASIS-1 Cross-Sectional dataset from [OASIS Brains](https://www.oasis-brains.org/):
-
-\`\`\`bash
 # Place downloaded data in:
 mkdir -p data/raw
 # Extract all disc folders to data/raw/
-\`\`\`
 
 ---
 
@@ -130,7 +111,6 @@ mkdir -p data/raw
 
 ### Phase 1: Data Preprocessing
 
-\`\`\`bash
 # Check data structure
 python scripts/check_data_structure.py
 
@@ -148,17 +128,14 @@ python scripts/create_dataset.py
 
 # Verify Phase 1
 python scripts/phase1_summary.py
-\`\`\`
 
 ### Phase 2: Model Training
 
-\`\`\`bash
 # Train model
 python scripts/train.py
 
 # View training summary
 python scripts/phase2_summary.py
-\`\`\`
 
 **Training Configuration:**
 - Batch size: 16
@@ -169,7 +146,6 @@ python scripts/phase2_summary.py
 
 ### Phase 3: Evaluation & Interpretability
 
-\`\`\`bash
 # Evaluate on test set
 python scripts/evaluate.py
 
@@ -184,7 +160,6 @@ python scripts/generate_final_report.py
 
 # View Phase 3 summary
 python scripts/phase3_summary.py
-\`\`\`
 
 ---
 
@@ -242,11 +217,9 @@ Grad-CAM heatmaps highlight brain regions the model focuses on:
 - **Preprocessing**: Skull-stripping, normalization, resizing to 224×224
 
 **Citation:**
-\`\`\`
 Marcus, D. S., Wang, T. H., Parker, J., Csernansky, J. G., Morris, J. C., & Buckner, R. L. (2007).
 Open Access Series of Imaging Studies (OASIS): cross-sectional MRI data in young, middle aged,
 nondemented, and demented older adults. Journal of cognitive neuroscience, 19(9), 1498-1507.
-\`\`\`
 
 ---
 
@@ -345,7 +318,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Sayed Zabiulla**
 
 - GitHub: [@SayedZabiulla](https://github.com/SayedZabiulla)
-- Email: SayedZabeulla.com
+- Email: SayedZabeulla@gmail.com
 - University: Alliance University
 
 ---
@@ -362,7 +335,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For questions or collaboration opportunities, please reach out via:
-- Email: your.SayedZabeulla@gmail.com
+- Email: SayedZabeulla@gmail.com
 - LinkedIn: [SayedZabiulla](https://linkedin.com/in/SayedZabiulla)
 
 ---
