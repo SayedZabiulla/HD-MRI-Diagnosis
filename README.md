@@ -51,34 +51,30 @@ This capstone project implements an automated deep learning system for diagnosin
 
 ## 🗂️ Project Structure
 
-HD_Diagnosis_Project/
 ├── data/
-│   ├── raw/                      # OASIS-1 dataset (not included)
-│   └── processed/                # Preprocessed slices and metadata
-├── models/                       # Trained model checkpoints (281MB each)
-│   ├── best_model_f1.pth
-│   ├── best_model_loss.pth
-│   └── final_model.pth
-├── scripts/                      # All Python scripts
-│   ├── model.py                  # ResNet50 architecture
-│   ├── train.py                  # Training script
-│   ├── evaluate.py               # Evaluation script
-│   ├── visualize_gradcam.py      # Grad-CAM visualization
-│   ├── create_dataset.py         # Dataset and DataLoader
-│   ├── train_utils.py            # Training utilities
-│   └── gradcam_utils.py          # Grad-CAM implementation
-├── results/
-│   ├── evaluation/               # Test metrics and visualizations
-│   │   ├── confusion_matrix.png
-│   │   ├── roc_curve.png
-│   │   ├── metrics_summary.png
-│   │   └── test_metrics.json
-│   ├── gradcam/                  # Grad-CAM heatmaps (20 samples)
-│   ├── training_history.png
-│   └── FINAL_PROJECT_REPORT.txt
-├── requirements.txt              # Python dependencies
-├── README.md                     # This file
-└── LICENSE                       # MIT License
+│   ├── 01_raw/          # Immutable original data
+│   ├── 02_intermediate/ # Intermediate data (e.g., preprocessed)
+│   └── 03_processed/    # Final, clean data for modeling
+│
+├── notebooks/
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_data_preprocessing.ipynb
+│   └── 03_modeling.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── data_processing.py # Functions for cleaning and featurizing
+│   ├── modeling.py        # Functions for training and evaluation
+│   └── utils.py           # Helper functions
+│
+├── models/                  # Saved models (e.g., .pkl, .h5 files)
+│
+├── reports/
+│   └── figures/             # Graphs and plots
+│
+├── .gitignore               # Files to ignore (e.g., data/, models/)
+├── requirements.txt         # Project dependencies (e.g., pandas, sklearn)
+└── README.md                # Project overview, setup, and usage
 
 ---
 
