@@ -50,6 +50,7 @@ This capstone project implements an automated deep learning system for diagnosin
 ---
 
 ## 🗂️ Project Structure
+
 HD_Diagnosis_Project/
 ├── data/
 │   ├── raw/                      # OASIS-1 dataset (not included)
@@ -78,6 +79,7 @@ HD_Diagnosis_Project/
 ├── requirements.txt              # Python dependencies
 ├── README.md                     # This file
 └── LICENSE                       # MIT License
+
 ---
 
 ## 🚀 Installation & Setup
