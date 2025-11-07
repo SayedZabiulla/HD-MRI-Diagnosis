@@ -51,6 +51,8 @@ This capstone project implements an automated deep learning system for diagnosin
 
 ## 🗂️ Project Structure
 
+```
+
 ├── data/
 │   ├── 01_raw/          # Immutable original data
 │   ├── 02_intermediate/ # Intermediate data (e.g., preprocessed)
@@ -75,6 +77,8 @@ This capstone project implements an automated deep learning system for diagnosin
 ├── .gitignore               # Files to ignore (e.g., data/, models/)
 ├── requirements.txt         # Project dependencies (e.g., pandas, sklearn)
 └── README.md                # Project overview, setup, and usage
+
+```
 
 ---
 
