@@ -118,7 +118,7 @@ python scripts/check_data_structure.py
 #### Create labels from clinical data
 python scripts/create_labels.py
 
-####Z Preprocess MRI volumes
+#### Preprocess MRI volumes
 python scripts/preprocess_volumes.py
 
 # Extract 2D slices
