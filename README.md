@@ -112,13 +112,13 @@ mkdir -p data/raw
 
 ### Phase 1: Data Preprocessing
 
-# Check data structure
+#### Check data structure
 python scripts/check_data_structure.py
 
-# Create labels from clinical data
+#### Create labels from clinical data
 python scripts/create_labels.py
 
-# Preprocess MRI volumes
+####Z Preprocess MRI volumes
 python scripts/preprocess_volumes.py
 
 # Extract 2D slices
