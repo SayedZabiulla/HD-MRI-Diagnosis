@@ -89,22 +89,52 @@ FN: 65
 | EfficientNet-B0 | 5.3M | 0.8511 | 0.7409 |
 
 ---
-# 🗂️ Project Structure
+## 🗂️ Project Structure
 
+```
 HD-MRI-Diagnosis/
 │
-├── 📁 scripts/                    # All Python code
+├── scripts/                       # All Python source code
+│   ├── train_resnet50.py
+│   ├── train_densenet121.py
+│   ├── train_efficientnet_b0.py
+│   ├── evaluate_models.py
+│   ├── generate_comparison.py
+│   └── utils.py
 │
-├── 📁 results/                    # All metrics (JSON) + Reports
-│   ├── 📁 resnet50/
-│   ├── 📁 densenet121/
-│   ├── 📁 efficientnet_b0/
-│   └── 📁 comparison/
+├── results/                       # Model results, metrics and reports
+│   │
+│   ├── resnet50/                  # ResNet50 experiment results
+│   │   ├── metrics.json
+│   │   ├── confusion_matrix.png
+│   │   └── training_history.png
+│   │
+│   ├── densenet121/               # DenseNet121 experiment results
+│   │   ├── metrics.json
+│   │   ├── confusion_matrix.png
+│   │   └── training_history.png
+│   │
+│   ├── efficientnet_b0/           # EfficientNet-B0 experiment results
+│   │   ├── metrics.json
+│   │   ├── confusion_matrix.png
+│   │   └── training_history.png
+│   │
+│   └── comparison/                # Final model comparison results
+│       ├── metrics_comparison.png
+│       ├── roc_comparison.png
+│       ├── training_curves.png
+│       └── efficiency_analysis.png
 │
-├── 📁 Data/
-│   └── 📁 Processed/             # The Processed Data 
+├── data/                          # Project data
+│   │
+│   └── Processed /                # The Processed Data
 │
-└── [Root files: README.md, requirements.txt, LICENSE, .gitignore]
+├── README.md                      # Project documentation
+├── requirements.txt               # Python dependencies
+├── LICENSE                        # MIT License
+└── .gitignore                     # Ignored files
+```
+
 ---
 
 # 🧠 Methodology
