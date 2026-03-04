@@ -89,7 +89,7 @@ FN: 65
 | EfficientNet-B0 | 5.3M | 0.8511 | 0.7409 |
 
 ---
-🗂️ Project Structure
+# 🗂️ Project Structure
 
 HD-MRI-Diagnosis/
 │
