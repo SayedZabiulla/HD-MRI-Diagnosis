@@ -89,43 +89,22 @@ FN: 65
 | EfficientNet-B0 | 5.3M | 0.8511 | 0.7409 |
 
 ---
+🗂️ Project Structure
 
-# 🗂️ Project Structure
-
-```
-
-HD-MRI-Diagnosis
+HD-MRI-Diagnosis/
 │
-├── data/
-│   ├── raw/
-│   └── processed/
+├── 📁 scripts/                    # All Python code
 │
-├── models/
-│   ├── best_model_f1.pth
-│   ├── best_model_loss.pth
-│   └── final_model.pth
+├── 📁 results/                    # All metrics (JSON) + Reports
+│   ├── 📁 resnet50/
+│   ├── 📁 densenet121/
+│   ├── 📁 efficientnet_b0/
+│   └── 📁 comparison/
 │
-├── scripts/
-│   ├── train.py
-│   ├── evaluate.py
-│   ├── visualize_gradcam.py
-│   ├── create_dataset.py
-│   └── model.py
+├── 📁 Data/
+│   └── 📁 Processed/             # The Processed Data 
 │
-├── results/
-│   ├── evaluation/
-│   │   ├── confusion_matrix.png
-│   │   └── roc_curve.png
-│   │
-│   ├── gradcam/
-│   └── training_history.png
-│
-├── requirements.txt
-├── README.md
-└── LICENSE
-
-```
-
+└── [Root files: README.md, requirements.txt, LICENSE, .gitignore]
 ---
 
 # 🧠 Methodology
