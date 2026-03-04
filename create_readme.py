@@ -1,389 +1,225 @@
 readme_content = """# Automated Huntington Disease Diagnosis Using MRI Imaging and Deep Learning
 
 [![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
-[![PyTorch 2.2.2](https://img.shields.io/badge/PyTorch-2.2.2-red.svg)](https://pytorch.org/)
-[![MONAI 1.3.1](https://img.shields.io/badge/MONAI-1.3.1-green.svg)](https://monai.io/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 📋 Project Overview
+---
 
-This capstone project implements an automated deep learning system for diagnosing Huntington's Disease (HD) from brain MRI scans. The system uses transfer learning with ResNet50 architecture to classify brain MRI scans as either Huntington's Disease or Healthy Control, achieving **86.39% validation accuracy** and **70.09% F1 score**.
+# 📋 Project Overview
 
-### Key Features
+This capstone project implements an automated deep learning system for diagnosing **Huntington's Disease (HD)** from brain MRI scans.
 
-- ✅ **Transfer Learning**: ResNet50 pre-trained on ImageNet, fine-tuned for medical imaging
-- ✅ **Interpretable AI**: Grad-CAM visualizations showing model decision-making process
-- ✅ **Class Imbalance Handling**: Weighted loss function for imbalanced dataset
-- ✅ **Subject-Level Evaluation**: Aggregated predictions across multiple MRI slices
-- ✅ **Comprehensive Metrics**: Accuracy, Precision, Recall, F1-Score, ROC-AUC
-- ✅ **Reproducible**: Complete documentation and code for reproducibility
+The system evaluates **three modern convolutional neural network architectures** using transfer learning:
+
+- ResNet50
+- DenseNet121
+- EfficientNet-B0
+
+These models classify MRI brain scans into:
+
+• Huntington's Disease  
+• Healthy Control
+
+The project performs a **comprehensive performance comparison** between the architectures.
 
 ---
 
-## 🎯 Problem Statement
+# 🚀 Key Features
 
-1. **Difficulty in Early Diagnosis**: Subtle morphological changes in the brain are difficult to detect in early HD stages
-2. **Subjectivity and High Cost**: Manual radiological analysis is time-consuming, expensive, and dependent on radiologist expertise
-3. **Hidden Data Patterns**: Complex, high-dimensional patterns in MRI data are often too subtle for standard clinical observation
-
----
-
-## 🏆 Results Summary
-
-### Model Performance (Test Set)
-
-| Metric | Slice-Level | Subject-Level |
-|--------|-------------|---------------|
-| **Accuracy** | 86.39% | 84.09% |
-| **Precision** | 68.76% | 70.00% |
-| **Recall** | 64.13% | 63.64% |
-| **F1 Score** | 0.7009 | 0.6667 |
-| **ROC AUC** | 0.8526 | - |
-
-### Training Details
-
-- **Dataset**: OASIS-1 Cross-Sectional (436 subjects, 44,908 slices)
-- **Architecture**: ResNet50 with modified input/output layers
-- **Training Time**: ~2.5 hours (12 epochs with early stopping)
-- **Hardware**: NVIDIA GeForce GTX 1650 Ti (4GB VRAM)
+- Transfer Learning using ImageNet pretrained models
+- Multi-architecture comparison
+- Grad-CAM explainability
+- Class imbalance handling
+- ROC curve analysis
+- Confusion matrix evaluation
+- Efficiency vs performance comparison
 
 ---
 
-## 🗂️ Project Structure
+# 🏆 Results Summary
 
-\`\`\`
-HD_Diagnosis_Project/
+## Test Set Performance
+
+| Metric | ResNet50 | DenseNet121 | EfficientNet-B0 |
+|------|------|------|------|
+| Accuracy | **0.9495** | 0.8683 | 0.8511 |
+| Precision | **0.8885** | 0.6331 | 0.6127 |
+| Recall | 0.8893 | **1.0000** | 0.9369 |
+| Specificity | **0.9672** | 0.8295 | 0.8258 |
+| F1 Score | **0.8889** | 0.7753 | 0.7409 |
+| ROC AUC | 0.9776 | **0.9877** | 0.9696 |
+
+### Key Observations
+
+• **ResNet50 achieved the highest overall accuracy and F1 score**  
+• **DenseNet121 achieved perfect recall (1.0)**  
+• **EfficientNet-B0 is the most lightweight model**
+
+---
+
+# 📊 Confusion Matrix Statistics
+
+### ResNet50
+TP: 916  
+TN: 3387  
+FP: 115  
+FN: 114  
+
+### DenseNet121
+TP: 1030  
+TN: 2905  
+FP: 597  
+FN: 0  
+
+### EfficientNet-B0
+TP: 965  
+TN: 2892  
+FP: 610  
+FN: 65  
+
+---
+
+# 📊 Efficiency vs Performance
+
+| Model | Parameters | Accuracy | F1 Score |
+|------|------|------|------|
+| ResNet50 | 24.5M | **0.9495** | **0.8889** |
+| DenseNet121 | 7.5M | 0.8683 | 0.7753 |
+| EfficientNet-B0 | 5.3M | 0.8511 | 0.7409 |
+
+---
+
+# 🗂️ Project Structure
+
+```
+
+HD-MRI-Diagnosis
+│
 ├── data/
-│   ├── raw/                      # OASIS-1 dataset (not included)
-│   └── processed/                # Preprocessed slices and metadata
-├── models/                       # Trained model checkpoints (281MB each)
+│   ├── raw/
+│   └── processed/
+│
+├── models/
 │   ├── best_model_f1.pth
 │   ├── best_model_loss.pth
 │   └── final_model.pth
-├── scripts/                      # All Python scripts
-│   ├── model.py                  # ResNet50 architecture
-│   ├── train.py                  # Training script
-│   ├── evaluate.py               # Evaluation script
-│   ├── visualize_gradcam.py      # Grad-CAM visualization
-│   ├── create_dataset.py         # Dataset and DataLoader
-│   ├── train_utils.py            # Training utilities
-│   └── gradcam_utils.py          # Grad-CAM implementation
+│
+├── scripts/
+│   ├── train.py
+│   ├── evaluate.py
+│   ├── visualize_gradcam.py
+│   ├── create_dataset.py
+│   └── model.py
+│
 ├── results/
-│   ├── evaluation/               # Test metrics and visualizations
+│   ├── evaluation/
 │   │   ├── confusion_matrix.png
-│   │   ├── roc_curve.png
-│   │   ├── metrics_summary.png
-│   │   └── test_metrics.json
-│   ├── gradcam/                  # Grad-CAM heatmaps (20 samples)
-│   ├── training_history.png
-│   └── FINAL_PROJECT_REPORT.txt
-├── requirements.txt              # Python dependencies
-├── README.md                     # This file
-└── LICENSE                       # MIT License
-\`\`\`
+│   │   └── roc_curve.png
+│   │
+│   ├── gradcam/
+│   └── training_history.png
+│
+├── requirements.txt
+├── README.md
+└── LICENSE
+
+```
 
 ---
 
-## 🚀 Installation & Setup
+# 🧠 Methodology
 
-### Prerequisites
+### 1️⃣ Data Collection
+MRI scans obtained from the **OASIS-1 dataset**.
 
-- Ubuntu 24.04 LTS (or similar Linux distribution)
-- NVIDIA GPU with CUDA support (minimum 4GB VRAM)
-- Python 3.10
-- CUDA 12.1
+### 2️⃣ Preprocessing
+- Skull stripping
+- Normalization
+- Slice extraction
+- Data augmentation
 
-### Step 1: Clone Repository
+### 3️⃣ Model Training
+Transfer learning using pretrained CNN architectures.
 
-\`\`\`bash
-git clone https://github.com/YOUR_USERNAME/HD-MRI-Diagnosis.git
-cd HD-MRI-Diagnosis
-\`\`\`
+### 4️⃣ Evaluation
+Metrics used:
 
-### Step 2: Create Virtual Environment
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC AUC
 
-\`\`\`bash
-python3.10 -m venv hd_env
-source hd_env/bin/activate
-\`\`\`
-
-### Step 3: Install Dependencies
-
-\`\`\`bash
-pip install --upgrade pip
-pip install -r requirements.txt
-\`\`\`
-
-### Step 4: Download Dataset
-
-Download the OASIS-1 Cross-Sectional dataset from [OASIS Brains](https://www.oasis-brains.org/):
-
-\`\`\`bash
-# Place downloaded data in:
-mkdir -p data/raw
-# Extract all disc folders to data/raw/
-\`\`\`
+Grad-CAM used for model interpretability.
 
 ---
 
-## 📊 Usage
+# 📄 Dataset Information
 
-### Phase 1: Data Preprocessing
+Dataset: **OASIS-1 Cross-Sectional MRI Dataset**
 
-\`\`\`bash
-# Check data structure
-python scripts/check_data_structure.py
+Subjects: 436  
+MRI Type: T1-weighted  
+Age Range: 18-96
 
-# Create labels from clinical data
-python scripts/create_labels.py
+Label Distribution
 
-# Preprocess MRI volumes
-python scripts/preprocess_volumes.py
-
-# Extract 2D slices
-python scripts/extract_slices.py
-
-# Create dataset splits
-python scripts/create_dataset.py
-
-# Verify Phase 1
-python scripts/phase1_summary.py
-\`\`\`
-
-### Phase 2: Model Training
-
-\`\`\`bash
-# Train model
-python scripts/train.py
-
-# View training summary
-python scripts/phase2_summary.py
-\`\`\`
-
-**Training Configuration:**
-- Batch size: 16
-- Learning rate: 1e-4
-- Optimizer: Adam
-- Scheduler: ReduceLROnPlateau
-- Early stopping: 10 epochs patience
-
-### Phase 3: Evaluation & Interpretability
-
-\`\`\`bash
-# Evaluate on test set
-python scripts/evaluate.py
-
-# Generate Grad-CAM visualizations
-python scripts/visualize_gradcam.py
-
-# Subject-level evaluation
-python scripts/subject_level_evaluation.py
-
-# Generate final report
-python scripts/generate_final_report.py
-
-# View Phase 3 summary
-python scripts/phase3_summary.py
-\`\`\`
+Healthy Control: 336  
+Dementia: 100
 
 ---
 
-## 🧠 Model Architecture
+# 💡 Key Findings
 
-### ResNet50 Modifications
+Strengths
 
-1. **Input Layer**: Modified `conv1` from 3-channel (RGB) to 1-channel (grayscale)
-2. **Output Layer**: Replaced FC layer with custom classifier:
-   - Dropout (p=0.5)
-   - Linear(2048 → 512)
-   - ReLU
-   - Dropout (p=0.3)
-   - Linear(512 → 1) for binary classification
+• High accuracy using ResNet50  
+• Perfect recall using DenseNet121  
+• Efficient lightweight model using EfficientNet-B0  
+• Strong ROC-AUC (>0.96)
 
-### Training Strategy
+Limitations
 
-- **Transfer Learning**: ImageNet pre-trained weights
-- **Data Augmentation**: Random rotation, flipping
-- **Class Imbalance**: Weighted BCE loss (pos_weight=3.35)
-- **Regularization**: Dropout, weight decay (1e-5)
+• Limited dataset size  
+• 2D slice approach  
+• Potential overfitting risk
 
 ---
 
-## 📈 Visualizations
+# 🔮 Future Work
 
-### Confusion Matrix
-![Confusion Matrix](results/evaluation/confusion_matrix.png)
-
-### ROC Curve
-![ROC Curve](results/evaluation/roc_curve.png)
-
-### Training History
-![Training History](results/training_history.png)
-
-### Grad-CAM Examples
-Grad-CAM heatmaps highlight brain regions the model focuses on:
-
-![Grad-CAM Example](results/gradcam/gradcam_01_OAS1_0001_MR1_slice050_true0_pred0.png)
-
-*Example: Grad-CAM visualization showing model attention on brain regions*
+- 3D CNN architectures
+- Larger MRI datasets
+- Multi-class disease severity prediction
+- Attention-based models
+- Clinical deployment system
 
 ---
 
-## 📄 Dataset Information
+# 👨‍💻 Author
 
-**OASIS-1 Cross-Sectional Dataset**
+Sayed Zabiulla  
+Alliance University  
 
-- **Source**: [OASIS Brains](https://www.oasis-brains.org/)
-- **Subjects**: 436 (ages 18-96)
-- **Labels**: Based on Clinical Dementia Rating (CDR)
-  - Control (CDR = 0.0): 336 subjects
-  - Dementia (CDR > 0.0): 100 subjects
-- **Image Type**: T1-weighted MRI (Analyze 7.5 format)
-- **Preprocessing**: Skull-stripping, normalization, resizing to 224×224
-
-**Citation:**
-\`\`\`
-Marcus, D. S., Wang, T. H., Parker, J., Csernansky, J. G., Morris, J. C., & Buckner, R. L. (2007).
-Open Access Series of Imaging Studies (OASIS): cross-sectional MRI data in young, middle aged,
-nondemented, and demented older adults. Journal of cognitive neuroscience, 19(9), 1498-1507.
-\`\`\`
+GitHub  
+https://github.com/SayedZabiulla
 
 ---
 
-## 🔬 Methodology
+# 📝 License
 
-### 1. Data Acquisition
-- Obtained T1-weighted brain MRI scans from OASIS-1 dataset
-- 436 subjects with clinical dementia ratings
-
-### 2. Preprocessing Pipeline
-- Multiple scans per subject averaged for higher quality
-- Skull-stripping to isolate brain tissue
-- Normalization to [0, 1] range
-- 2D slice extraction (coronal plane, middle 40%)
-
-### 3. Model Training
-- ResNet50 with transfer learning
-- 80/10/10 train/val/test split (subject-level)
-- Data augmentation for improved generalization
-- Early stopping to prevent overfitting
-
-### 4. Evaluation
-- Comprehensive metrics (accuracy, precision, recall, F1, AUC)
-- Confusion matrix analysis
-- Subject-level aggregation (majority voting)
-- Grad-CAM for interpretability
-
----
-
-## 💡 Key Findings
-
-### Strengths
-✅ High test accuracy (86.39%)  
-✅ Good ROC AUC (0.8526) showing discrimination ability  
-✅ Subject-level accuracy (84.09%)  
-✅ Interpretable predictions via Grad-CAM  
-✅ Effective handling of class imbalance  
-
-### Limitations
-⚠️ Some overfitting observed (train 99.44% vs test 86.39%)  
-⚠️ Limited dataset size (436 subjects)  
-⚠️ 2D approach (computational constraint)  
-⚠️ Binary classification only  
-
-### Clinical Relevance
-- **Sensitivity**: 64.13% (ability to detect dementia)
-- **Specificity**: 91.82% (ability to identify healthy controls)
-- **Recommended Use**: Clinical decision support tool, NOT standalone diagnosis
-
----
-
-## 🔮 Future Work
-
-1. **Expand Dataset**: Include ADNI, OpenNeuro datasets
-2. **3D CNN Architecture**: Process full 3D volumes (requires more VRAM)
-3. **Multi-Class Classification**: Classify CDR severity levels (0, 0.5, 1, 2)
-4. **Cross-Validation**: K-fold validation for robust performance
-5. **External Validation**: Test on independent datasets
-6. **Ensemble Methods**: Combine multiple models
-7. **Longitudinal Analysis**: Track disease progression over time
-
----
-
-## 📚 References
-
-1. Ganesh et al. (2023). "Exploring huntington's disease diagnosis via artificial intelligence models." *Diagnostics*, 13(23), 3592.
-
-2. Parekh et al. (2023). "Artificial intelligence in diagnosis and management of Huntington's disease." *Beni-Suef University Journal of Basic and Applied Sciences*, 12(1), 87.
-
-3. Zohair et al. (2025). "Artificial intelligence and machine learning for the diagnosis of Huntington disease: a narrative review." *Journal of Medical Artificial Intelligence*, 10176.
-
-4. Marcus et al. (2007). "Open Access Series of Imaging Studies (OASIS): cross-sectional MRI data." *Journal of Cognitive Neuroscience*, 19(9), 1498-1507.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👨‍💻 Author
-
-**Sayed Zabiulla**
-
-- GitHub: [@YOUR_GITHUB_USERNAME](https://github.com/YOUR_GITHUB_USERNAME)
-- Email: your.email@example.com
-- University: YOUR_UNIVERSITY_NAME
-
----
-
-## 🙏 Acknowledgments
-
-- OASIS project for providing the dataset
-- PyTorch and MONAI communities
-- ResNet architecture (He et al., 2016)
-- Grad-CAM technique (Selvaraju et al., 2017)
-
----
-
-## 📞 Contact
-
-For questions or collaboration opportunities, please reach out via:
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-
----
-
-## ⭐ Star History
-
-If you find this project helpful, please consider giving it a star!
-
-[![Star History Chart](https://api.star-history.com/svg?repos=YOUR_USERNAME/HD-MRI-Diagnosis&type=Date)](https://star-history.com/#YOUR_USERNAME/HD-MRI-Diagnosis&Date)
-
----
-
-**Note**: This is a research/educational project. The model is NOT intended for clinical use without proper validation and regulatory approval.
+MIT License
 """
 
-# Save README
 import os
+
 PROJECT_PATH = os.path.expanduser("~/HD_Diagnosis_Project")
 readme_path = os.path.join(PROJECT_PATH, "README.md")
 
-with open(readme_path, 'w') as f:
+with open(readme_path, "w") as f:
     f.write(readme_content)
 
-print(f"✓ README.md created at: {readme_path}")
+print(f"README.md created at: {readme_path}")
+```
+
