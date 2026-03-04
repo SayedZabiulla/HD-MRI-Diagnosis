@@ -191,14 +191,11 @@ Strengths
 Limitations
 
 • Limited dataset size  
-• 2D slice approach  
-• Potential overfitting risk
 
 ---
 
 # 🔮 Future Work
 
-- 3D CNN architectures
 - Larger MRI datasets
 - Multi-class disease severity prediction
 - Attention-based models
@@ -206,13 +203,18 @@ Limitations
 
 ---
 
-# 👨‍💻 Author
+# 👨‍💻 Authors
 
-Sayed Zabiulla  
+1. Sayed Zabiulla  
+2. Shagufta Aleem
+3. Gutta Mohan
+4. Mohamed Irbaz N
 Alliance University  
 
 GitHub  
 https://github.com/SayedZabiulla
+https://github.com/ShaguftaAleem
+https://github.com/GuttaMohan
 
 ---
 
