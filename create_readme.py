@@ -221,5 +221,4 @@ with open(readme_path, "w") as f:
     f.write(readme_content)
 
 print(f"README.md created at: {readme_path}")
-```
 
